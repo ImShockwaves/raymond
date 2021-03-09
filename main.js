@@ -35,6 +35,7 @@ client.once('ready', () => {
 client.login(process.env.TOKEN);
 
 client.on('message', message => {
+  console.log('MESSAGE');
 	if (message.content[0] && message.content[0] === process.env.PREFIX) {
     console.log('You use the right prefix !');
   }
