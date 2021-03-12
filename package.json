@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ccharrie/raymond#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",

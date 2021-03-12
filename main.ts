@@ -7,6 +7,9 @@ const _utils = new Utils;
 import { Parser } from './classes/parser';
 import { Villagers_name } from './models/villagers';
 const _parser = new Parser();
+import fs from "fs";
+import { exec, execSync } from 'child_process';
+
 
 declare global {
   namespace NodeJS {
@@ -16,6 +19,17 @@ declare global {
       lang: string;
     }
   }
+  interface String {
+    capitalize(): string;
+  }
+}
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+if (!fs.existsSync('./data')) {
+  execSync('git clone https://github.com/alexislours/ACNHAPI.git data');
 }
 
 console.log('_____________________________________________________'); 

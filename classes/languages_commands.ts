@@ -10,10 +10,16 @@ const EUfr = [
     "poisson"
 ];
 const us: translations = {
-    "birthday": "Birthday"
+    "birthday": "Birthday",
+    "species": 'Species',
+    "hobby": 'Hobby',
+    "villagerxfound": "Here is the villager {{ name }}!"
 }
 const fr: translations = {
-    "birthday": "Anniversaire"
+    "birthday": "Anniversaire",
+    "species": 'Espèce',
+    "hobby": "Loisir",
+    "villagerxfound": "Voici le villageois {{ name }}!"
 }
 
 export { USen, EUfr, fr, us };

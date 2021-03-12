@@ -1,5 +1,6 @@
 import * as cmds_lang from './languages_commands';
 import { Villager } from './villager/villager';
+import colors from 'colors/safe';
 
 export class Parser {
 
@@ -15,7 +16,6 @@ export class Parser {
             global.lang = 'USen';
             return index;
         }
-
         return index;
     }
 
@@ -27,6 +27,8 @@ export class Parser {
                 break;
         
             default:
+                console.error(`Command not executed for ${params}`);
+                
                 break;
         }
     }
@@ -40,6 +42,9 @@ export class Parser {
             console.log("Command asked ...");
             
             await this.executeCommand(index, param);
-        }  
+        }  else {
+            console.log(colors.red(`Command not executed for <${param.join(' ')}>`));
+
+        }
     }
 }

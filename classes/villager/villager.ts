@@ -20,7 +20,6 @@ export class Villager {
             }
         });
         if (findByName) {
-            console.log(moment([2, 25]));
             
             let birthday =  moment(findByName.birthday.split('/').map((el: string): number => 
                 parseInt(el))).format("DD MMMM");
@@ -34,10 +33,10 @@ export class Villager {
                     thumbnail: {
                         url: findByName.icon_uri
                     },
-                    description: `Here is the villager ${params[1]}!`,
+                    description: _utils.translate('villagerxfound', {name : params[1].capitalize()}),
                     fields: [
                         {
-                            name: 'Species',
+                            name: _utils.translate('species'),
                             value: findByName.species,
                             inline: true
                         },
@@ -47,7 +46,7 @@ export class Villager {
                             inline: true
                         },
                         {
-                            name: 'Hobby',
+                            name: _utils.translate('hobby'),
                             value: findByName.hobby,
                             inline: true
                         },
