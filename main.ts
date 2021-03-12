@@ -28,9 +28,14 @@ String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
-if (!fs.existsSync('./data')) {
-  execSync('git clone https://github.com/alexislours/ACNHAPI.git data');
-}
+// if (fs.existsSync('./data')) {
+//   console.log("Retrieving data ...");
+  
+//   execSync('git clone https://github.com/alexislours/ACNHAPI.git data');
+// } else {
+//   console.log("Data found ...");
+  
+// }
 
 console.log('_____________________________________________________'); 
 console.log('88""Yb    db    Yb  dP 8b    d8  dP"Yb  88b 88 8888b.'); 
