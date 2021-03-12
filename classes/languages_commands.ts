@@ -1,15 +1,19 @@
 import { Villager } from './villager/villager';
+interface translations { [key: string]: string; }
 
-const US = [
+const USen = [
     "villager",
     "fish"
 ];
-const FR = [
+const EUfr = [
     "villageois",
     "poisson"
 ];
-const index = [
-    new Villager,
-];
+const us: translations = {
+    "birthday": "Birthday"
+}
+const fr: translations = {
+    "birthday": "Anniversaire"
+}
 
-export { US, FR, index };
+export { USen, EUfr, fr, us };

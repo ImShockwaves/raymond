@@ -1,21 +1,24 @@
 import villager from '../../data/v1a/villagers.json';
-import { Global } from '../../models/global';
+import { Villagers_name } from '../../models/villagers';
+import * as langs from '../languages_commands';
 
 export class Utils {
-    async defineGlobal(): Promise<Global> {
+    defineVillagerNames() {
 
-        let global: Global = {
-            villagers: []
-        };
-
-        global.villagers = villager.map(villager => {
+        global.villagers = villager.map((vill: Villagers_name) => {
             return {
-                id: villager.id,
-                "file-name": villager['file-name'],
-                name: villager.name
+                id: vill.id,
+                "file-name": vill['file-name'],
+                name: vill.name
             }
         });
+    }
 
-        return global;
+    translate(key: string): string {
+        if (global.lang === "EUfr") return langs.fr[key];
+        if (global.lang === "USen") return langs.us[key];
+        console.error(`Translation were not found for ${key}`);
+        
+        return key;
     }
 }
