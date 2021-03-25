@@ -1,5 +1,4 @@
 const data = require(`./data/v1a/${process.argv[2]}.json`);
-const translator = require('translate-json-object');
 
 let extracted = [];
 if (process.argv[3]) {

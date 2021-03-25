@@ -2,13 +2,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 import _config from './config.json';
 import Discord from 'discord.js';
-import { Utils } from './classes/utils/utils';
-const _utils = new Utils;
-import { Parser } from './classes/parser';
+import { Parser } from './src/parser';
 import { Villagers_name } from './models/villagers';
 const _parser = new Parser();
-import fs from "fs";
-import { exec, execSync } from 'child_process';
 
 
 declare global {
@@ -17,6 +13,7 @@ declare global {
       villagers: Villagers_name[];
       message: Discord.Message;
       lang: string;
+      queue: Map<any, any>;
     }
   }
   interface String {
@@ -24,18 +21,10 @@ declare global {
   }
 }
 
+
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 }
-
-// if (fs.existsSync('./data')) {
-//   console.log("Retrieving data ...");
-  
-//   execSync('git clone https://github.com/alexislours/ACNHAPI.git data');
-// } else {
-//   console.log("Data found ...");
-  
-// }
 
 console.log('_____________________________________________________'); 
 console.log('88""Yb    db    Yb  dP 8b    d8  dP"Yb  88b 88 8888b.'); 
@@ -47,6 +36,7 @@ console.log('_____________________________________________________');
 const client = new Discord.Client();
 
 client.once('ready', async () => {
+
 	console.log('Discord ready !');
 });
 

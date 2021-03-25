@@ -1,4 +1,5 @@
 {
     "PREFIX": "?",
-    "api_route": "https://acnhapi.com/v1/"
+    "api_route": "https://acnhapi.com/v1/",
+    "nookipedia_api": "https://api.nookipedia.com"
 }

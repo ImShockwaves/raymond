@@ -1,13 +1,13 @@
 import villagers from '../../data/v1a/villagers.json';
-import { Villagers_name } from '../../models/villagers';
-import _ from 'lodash';
 import { Sender } from '../sender';
 import moment from 'moment';
 import { Embed } from '../../models/embed';
 import { Utils } from '../utils/utils';
+import { Villager_route } from '../routes/villager.route'
 
 const _utils = new Utils;
 const _sender = new Sender;
+const _villager = new Villager_route;
 
 export class Villager {
     async displayVillager(params: string[]) {
@@ -20,14 +20,17 @@ export class Villager {
             }
         });
         if (findByName) {
-            let todate = findByName.birthday.split('/');
-            const date = moment().set({date: parseInt(todate[0]), month: parseInt(todate[1]) - 1});
-            const sign = _utils.getSign(date.format("YYYY-MM-DD"));
+            
+            const NKPDia_vill = await _villager.getVillager(findByName.name['name-USen']);
+
+            console.log("nkpdia vill", NKPDia_vill);
+
+            const date = moment(findByName['birthday-string'], 'MMMM Do');
             let birthday;
 
-            if (global.lang === "EUfr") birthday = date.locale('fr').format("DD MMM");
-            else if (global.lang === "USen") birthday = date.format("MMM DD");
-            else birthday = date.locale(global.lang.substring(2)).format("MMM DD");
+            if (global.lang === "EUfr") birthday = date.locale('fr').format("DD MMMM");
+            else if (global.lang === "USen") birthday = date.format("MMMM DD");
+            else birthday = date.locale(global.lang.substring(2)).format("MMMM DD");
 
             const embed: Embed = {
                 embed: {
@@ -53,12 +56,17 @@ export class Villager {
                         },
                         {
                             name: _utils.translate('astrosign'),
-                            value: _utils.translate(sign),
+                            value: _utils.translate(NKPDia_vill.sign),
                             inline: true
                         },
                         {
                             name: _utils.translate('hobby'),
                             value: _utils.translate(findByName.hobby),
+                            inline: true
+                        },
+                        {
+                            name: _utils.translate('personality'),
+                            value: _utils.translate(findByName.personality),
                             inline: true
                         },
                         {

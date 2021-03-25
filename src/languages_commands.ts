@@ -69,7 +69,16 @@ const us: translations = {
     "Fashion":"Fashion",
     "Nature":"Nature",
     "Play":"Play",
-    "Music":"Music"
+    "Music":"Music",
+    "personality": "Personality",
+    "Cranky":"Cranky",
+    "Jock":"Jock",
+    "Peppy":"Peppy",
+    "Snooty":"Snooty",
+    "Normal":"Normal",
+    "Smug":"Smug",
+    "Lazy":"Lazy",
+    "Uchi":"Uchi"
 }
 const fr: translations = {
     "birthday": "Anniversaire",
@@ -130,8 +139,17 @@ const fr: translations = {
     "Fitness": "Fitness",
     "Fashion": "Mode",
     "Nature": "Nature",
-    "Play": "Lecture",
-    "Music": "Musique"
+    "Play": "Jeux",
+    "Music": "Musique",
+    "personality": "Personnalité",
+    "Cranky":"Versatile",
+    "Jock":"Sportif",
+    "Peppy":"Vive",
+    "Snooty":"Arrogante",
+    "Normal":"Normale",
+    "Smug":"Chic",
+    "Lazy":"Paresseux",
+    "Uchi":"Grande soeur"
 }
 
 export { USen, EUfr, fr, us };

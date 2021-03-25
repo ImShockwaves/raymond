@@ -1,6 +1,10 @@
 import * as cmds_lang from './languages_commands';
 import { Villager } from './villager/villager';
 import colors from 'colors/safe';
+import { Player } from './music/player';
+
+global.queue = new Map();
+const _player = new Player;
 
 export class Parser {
 
@@ -38,9 +42,16 @@ export class Parser {
         var param = global.message.content.substring(1).split(/\s+/g);
         console.log("Command parsing ...", param);
         const index = this.findCommandInEachLanguage(param[0]);
-        if (index > -1) {
-            console.log("Command asked ...");
-            
+        const serverQueue = global.queue.get(global.message.guild!.id);
+  
+        if (param[0] = 'play') {
+          _player.execute(global.message, serverQueue);
+        } else if (param[0] = 'skip') {
+            _player.skip(global.message, serverQueue);
+        } else if (param[0] = 'stop') {
+            _player.stop(global.message, serverQueue);
+        } else if (index > -1) {
+            console.log("Command asked ...");     
             await this.executeCommand(index, param);
         }  else {
             console.log(colors.red(`Command not executed for <${param.join(' ')}>`));
