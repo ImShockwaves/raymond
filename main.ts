@@ -6,7 +6,6 @@ import { Parser } from './src/parser';
 import { Villagers_name } from './models/villagers';
 const _parser = new Parser();
 
-
 declare global {
   namespace NodeJS {
     interface Global {
@@ -20,7 +19,6 @@ declare global {
     capitalize(): string;
   }
 }
-
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);

@@ -44,12 +44,18 @@ export class Parser {
         const index = this.findCommandInEachLanguage(param[0]);
         const serverQueue = global.queue.get(global.message.guild!.id);
   
-        if (param[0] = 'play') {
-          _player.execute(global.message, serverQueue);
-        } else if (param[0] = 'skip') {
+        if (param[0] === 'play') {
+            console.log("Playin music");
+            await _player.execute(global.message, serverQueue);
+        } else if (param[0] === 'skip') {
+            console.log("Skipping current music");
             _player.skip(global.message, serverQueue);
-        } else if (param[0] = 'stop') {
+        } else if (param[0] === 'stop') {
+            console.log("Stopping current music");
             _player.stop(global.message, serverQueue);
+        } else if (param[0] === 'stop') {
+            console.log("Stopping current music");
+            _player.leave(global.message, serverQueue);
         } else if (index > -1) {
             console.log("Command asked ...");     
             await this.executeCommand(index, param);

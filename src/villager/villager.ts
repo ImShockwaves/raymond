@@ -11,7 +11,7 @@ const _villager = new Villager_route;
 
 export class Villager {
     async displayVillager(params: string[]) {
-        
+
         const findByName: any = villagers.find(vill => {
             
             for (const [key, value] of Object.entries(vill.name)) {
@@ -82,7 +82,7 @@ export class Villager {
             }
             await _sender.send(embed);
         } else {
-            await _sender.send('NOT FOUND :(');
+            await _sender.send(_utils.translate('villagernotfound', {name: params[1]}));
         }
     }
 }

@@ -1,4 +1,3 @@
-import { Villager } from './villager/villager';
 interface translations { [key: string]: string; }
 
 const USen = [
@@ -13,8 +12,8 @@ const us: translations = {
     "birthday": "Birthday",
     "species": 'Species',
     "hobby": 'Hobby',
-    "villagerxfound": "Here is the villager {{ name }}!",
-    "villagerxtitle": "Villager {{ name }} informations",
+    "villagerxfound": "Here is the villager **{{ name }}**!",
+    "villagerxtitle": "Villager **{{ name }}** informations",
     "catchphrase": 'Initial phrase',
     "astrosign":"Astrological sign",
     'Aries': 'Aries',
@@ -78,14 +77,15 @@ const us: translations = {
     "Normal":"Normal",
     "Smug":"Smug",
     "Lazy":"Lazy",
-    "Uchi":"Uchi"
+    "Uchi":"Uchi",
+    "villagernotfound": "Villager not found for {{ name }}"
 }
 const fr: translations = {
     "birthday": "Anniversaire",
     "species": 'Espèce',
     "hobby": "Loisir",
-    "villagerxfound": "Voici le villageois {{ name }}!",
-    "villagerxtitle": "Informations du villageois {{ name }}",
+    "villagerxfound": "Voici le villageois **{{ name }}**!",
+    "villagerxtitle": "Informations du villageois **{{ name }}**",
     "catchphrase": "Phrase de signature",
     "astrosign":"Signe astrologique",
     'Aries': 'Bélier',
@@ -149,7 +149,8 @@ const fr: translations = {
     "Normal":"Normale",
     "Smug":"Chic",
     "Lazy":"Paresseux",
-    "Uchi":"Grande soeur"
+    "Uchi":"Grande soeur",
+    "villagernotfound": "Villageois introuvable pour {{ name }}"
 }
 
 export { USen, EUfr, fr, us };
